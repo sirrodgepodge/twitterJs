@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+  
+  <div class="page-header">
+    <h1>Welcome to Twitter.js, {{first}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <b>{{currUser}}</b><br> <!-- object database; swig doesn't allow all of the js functions such as split method -->
+      100 followers
+      <img src={{'http://www.fullstackacademy.com/img/team/' +currUser.toLowerCase().replace(' ','_') + '.jpg'}} class="tweet-img-thumb"><br>
+    </div>
+    <div class="col-md-9 ">
+    
+      <!-- display tweets here -->
+      {% for tweet in tweets %}
+      <ul class="tweet-ul">
+        <li>
+        	<img src={{'http://www.fullstackacademy.com/img/team/' +tweet.name.toLowerCase().replace(' ','_') + '.jpg'}} class="tweet-img"/>
+        	<h3>{{tweet.name}}</h3>
+        	<p>{{tweet.text}}</p>
+        </li>
+      </ul>
+      {% endfor %}
+      
+      <form method="post" action="/submit">
+        <h3>Add Tweet :)</h3>
+        <input name="name" placeholder="Name" value="{{name || ""}}">
+        <input name="tweet" placeholder="Tweet Dat!">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+    
+{% endblock %}
