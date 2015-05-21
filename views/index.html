@@ -15,20 +15,20 @@
     <div class="col-md-9 ">
     
       <!-- display tweets here -->
-      {% for tweet in tweets %}
       <ul class="tweet-ul">
+      {% for tweet in tweets %}
         <li>
         	<img src={{'http://www.fullstackacademy.com/img/team/' +tweet.name.toLowerCase().replace(' ','_') + '.jpg'}} class="tweet-img"/>
         	<h3>{{tweet.name}}</h3>
         	<p>{{tweet.text}}</p>
         </li>
-      </ul>
       {% endfor %}
+      </ul>
       
       <form method="post" action="/submit">
         <h3>Add Tweet :)</h3>
-        <input name="name" placeholder="Name" value="{{name || ""}}">
-        <input name="tweet" placeholder="Tweet Dat!">
+        <input id="nameVal" name="name" placeholder="Name" value="{{name || ""}}">
+        <input id="tweetVal" name="tweet" placeholder="Tweet Dat!">
         <button type="submit">Submit</button>
       </form>
     </div>

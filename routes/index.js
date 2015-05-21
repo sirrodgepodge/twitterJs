@@ -28,8 +28,7 @@ module.exports = function(io){
 			text: req.body.tweet
 		};
 		io.sockets.emit('new_tweet',tweet);
-		//tweetBank.add(req.body.name, req.body.tweet);
-		//res.redirect('/');
+		tweetBank.add(req.body.name, req.body.tweet);
 	})
 	return router;
 };

@@ -86,9 +86,10 @@
 
       // When 'new_tweet' events are fired, do something with the packaged tweet
       socket.on('new_tweet', function (tweet) { 
-        console.log(tweet);
-        alert('Refreshing... check the console...');
-        $('tweet-ul').append(tweet);
+        console.log(tweet.name,' ',tweet.text);
+        $('.tweet-ul').append("<li><img src='http://www.fullstackacademy.com/img/team/"+tweet.name.toLowerCase().replace(' ','_') +".jpg' class='tweet-img'/><h3>"+tweet.name+"</h3><p>"+tweet.text+"</p></li>");
+        $('#tweetVal').val('');
+        $('#nameVal').val('{{name || ""}}');
       }); 
     </script>
   </body>
